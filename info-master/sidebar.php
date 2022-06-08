@@ -30,6 +30,12 @@
                 Tasks
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="./index.php?page=id_generator" class="nav-link nav-id_generator">
+            <i class="nav-icon fas fa-id-card"></i>
+              <p>ID Generator</p>
+            </a>
           </li> 
           <?php if($_SESSION['login_type'] != 1): ?>
           <li class="nav-item dropdown">
@@ -38,13 +44,6 @@
               <p>
                 Evaluation
               </p>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="./index.php?page=id_generator" class="nav-link nav-id_generator">
-            <i class="nav-icon fas fa-id-card"></i>
-              <p>ID Generator</p>
             </a>
           </li>
         <?php endif; ?>
