@@ -47,7 +47,16 @@
               </p>
             </a>
           </li>
-          <?php if($_SESSION['login_type'] != 1): ?>
+          <li class="nav-item">
+            <a href="./index.php?page=resume" class="nav-link nav-resume">
+              <i class="nav-icon fas fa-id-card">
+                <p>
+                  Resume
+                </p>
+              </i>
+            </a>
+          </li>
+          <?php if($_SESSION['login_type'] == 1): ?>
         <?php endif; ?>
           <?php if($_SESSION['login_type'] == 2): ?>
           <li class="nav-item dropdown">

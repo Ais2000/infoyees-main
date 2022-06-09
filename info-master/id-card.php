@@ -43,7 +43,7 @@
                                                   </div>
                                                   <div class='box-2'>
                                                       <h2>$name</h2>
-                                                      <p style='font-size: 14px;'>Web Developer</p>
+                                                      <p style='font-size: 14px;'>$role</p>
                                                   </div>
                                                   <div class='box-3'>
                                                       <img src='assets/images/logo.jpg' alt=''>
