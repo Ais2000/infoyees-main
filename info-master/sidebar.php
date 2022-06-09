@@ -22,7 +22,7 @@
                 Dashboard
               </p>
             </a>
-          </li> 
+          </li>
           <li class="nav-item dropdown">
             <a href="./index.php?page=task_list" class="nav-link nav-task_list">
               <i class="nav-icon fas fa-tasks"></i>
@@ -31,13 +31,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index.php?page=id_generator" class="nav-link nav-id_generator">
-            <i class="nav-icon fas fa-id-card"></i>
-              <p>ID Generator</p>
-            </a>
-          </li> 
-          <?php if($_SESSION['login_type'] != 1): ?>
           <li class="nav-item dropdown">
             <a href="./index.php?page=evaluation" class="nav-link nav-evaluation">
               <i class="nav-icon far fa-edit"></i>
@@ -46,6 +39,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="./index.php?page=id-index" class="nav-link nav-id-card">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                ID
+              </p>
+            </a>
+          </li>
+          <?php if($_SESSION['login_type'] != 1): ?>
         <?php endif; ?>
           <?php if($_SESSION['login_type'] == 2): ?>
           <li class="nav-item dropdown">
@@ -64,28 +66,13 @@
               </p>
             </a>
           </li> 
-          <li class="nav-item">
-            <a href="#" class="nav-link nav-edit_employee">
+          <li class="nav-item dropdown">
+            <a href="./index.php?page=employee_list" class="nav-link nav-employee_list tree-item">
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Employees
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.php?page=new_employee" class="nav-link nav-new_employee tree-item">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Add New</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index.php?page=employee_list" class="nav-link nav-employee_list tree-item">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>List</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link nav-edit_evaluator">

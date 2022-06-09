@@ -4,9 +4,9 @@
         $html = '';
         if(isset($_POST['search'])){
 
-             $id = $_POST['id'];
+             $id_no = $_POST['id_no'];
 
-             $sql = "Select * from cards where id='$id' ";
+             $sql = "Select * from cards where id_no='$id_no' ";
 
              $result = mysqli_query($conn, $sql);
  
@@ -17,14 +17,16 @@
                $html.="";
                          while($row=mysqli_fetch_assoc($result)){
                              
-                            $id = $row["id"];
-                            $employee_id = $row["employee_id"];
-                            $firstname = $row['firstname'];
-                            $middlename = $row['middlename'];
-                            $lastname = $row['lastname'];
+                            $name = $row["name"];
+                            $id_no = $row["id_no"];
+                            $department = $row['department'];
+                            $role = $row['role'];
+                            $supervisor = $row['supervisor'];
                             $email = $row['email'];
-                            $department_id = $row['department_id'];
-                            $avatar = $row['avatar'];
+                            $exp_date = $row['exp_date'];
+                            $phone = $row['phone'];
+                            $address = $row['address'];
+                            $image = $row['image'];
                             $date = date('M d, Y', strtotime($row['date']));
                           
                              
@@ -37,11 +39,11 @@
                                   
                                               <div class='container-2'>
                                                   <div class='box-1'>
-                                                  <img src='$avatar'/>
+                                                  <img src='$image'/>
                                                   </div>
                                                   <div class='box-2'>
-                                                      <h2>$firstname</h2>
-                                                      <p style='font-size: 14px;'>$department_id</p>
+                                                      <h2>$name</h2>
+                                                      <p style='font-size: 14px;'>Web Developer</p>
                                                   </div>
                                                   <div class='box-3'>
                                                       <img src='assets/images/logo.jpg' alt=''>
@@ -52,12 +54,12 @@
                                                   <div class='info-1'>
                                                       <div class='id'>
                                                           <h4>ID No</h4>
-                                                          <p>$id</p>
+                                                          <p>$id_no</p>
                                                       </div>
                                   
                                                       <div class='dob'>
                                                           <h4>Phone</h4>
-                                                          <p>$email</p>
+                                                          <p>$phone</p>
                                                       </div>
                                   
                                                   </div>
@@ -68,13 +70,13 @@
                                                       </div>
                                                       <div class='expire-date'>
                                                           <h4>Expire Date</h4>
-                                                          <p>$data</p>
+                                                          <p>$exp_date</p>
                                                       </div>
                                                   </div>
                                                   <div class='info-3'>
                                                       <div class='email'>
                                                           <h4>Address</h4>
-                                                          <p>$date this is the final long address</p>
+                                                          <p>$supervisor this is the final long address</p>
                                                       </div>
                                                       
                                                   </div>
@@ -116,6 +118,239 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
 
+
+<style>
+body{
+   font-family:'arial';
+   }
+
+.lavkush img {
+  border-radius: 8px;
+  border: 2px solid blue;
+}
+span{
+
+    font-family: 'Orbitron', sans-serif;
+    font-size:16px;
+}
+hr.new2 {
+  border-top: 1px dashed black;
+  width:350px;
+  text-align:left;
+  align-items:left;
+}
+ /* second id card  */
+ p{
+     font-size: 13px;
+     margin-top: -5px;
+ }
+ .container {
+    width: 80vh;
+    height: 45vh;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 1px 10px rgb(146 161 176 / 50%);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.header {
+    /* border: 2px solid black; */
+    width: 73vh;
+    height: 15vh;
+    margin: 20px auto;
+    background-color: white;
+    /* box-shadow: 0 1px 10px rgb(146 161 176 / 50%); */
+    /* border-radius: 10px; */
+    background-image: url(assets/images/BDM2.png);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header h1 {
+    color: rgb(27, 27, 49);
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+.header p {
+    color: rgb(157, 51, 0);
+    text-align: right;
+    margin-right: 22px;
+    margin-top: -10px;
+}
+
+.container-2 {
+    /* border: 2px solid red; */
+    width: 73vh;
+    height: 10vh;
+    margin: 0px auto;
+    margin-top: -20px;
+    display: flex;
+}
+
+.box-1 {
+    border: 4px solid black;
+    width: 90px;
+    height: 95px;
+    margin: -40px 25px;
+    border-radius: 3px;
+}
+
+.box-1 img {
+    width: 82px;
+    height: 87px;
+}
+
+.box-2 {
+    /* border: 2px solid purple; */
+    width: 33vh;
+    height: 8vh;
+    margin: 7px 0px;
+    padding: 5px 7px 0px 0px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box-2 h2 {
+    font-size: 1.3rem;
+    margin-top: -5px;
+    color: rgb(27, 27, 49);
+    ;
+}
+
+.box-2 p {
+    font-size: 0.7rem;
+    margin-top: -5px;
+    color: rgb(179, 116, 0);
+}
+
+.box-3 {
+    /* border: 2px solid rgb(21, 255, 0); */
+    width: 8vh;
+    height: 8vh;
+    margin: 8px 0px 8px 30px;
+}
+
+.box-3 img {
+    width: 8vh;
+}
+
+.container-3 {
+    /* border: 2px solid rgb(111, 2, 161); */
+    width: 73vh;
+    height: 12vh;
+    margin: 0px auto;
+    margin-top: 10px;
+    display: flex;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 0.7rem;
+}
+
+.info-1 {
+    /* border: 1px solid rgb(255, 38, 0); */
+    width: 17vh;
+    height: 12vh;
+}
+
+.id {
+    /* border: 1px solid rgb(2, 92, 17); */
+    width: 17vh;
+    height: 5vh;
+}
+
+.id h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.dob {
+    /* border: 1px solid rgb(0, 46, 105); */
+    width: 17vh;
+    height: 5vh;
+    margin: 8px 0px 0px 0px;
+}
+
+.dob h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.info-2 {
+    /* border: 1px solid rgb(4, 0, 59); */
+    width: 17vh;
+    height: 12vh;
+}
+
+.join-date {
+    /* border: 1px solid rgb(2, 92, 17); */
+    width: 17vh;
+    height: 5vh;
+}
+
+.join-date h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.expire-date {
+    /* border: 1px solid rgb(0, 46, 105); */
+    width: 17vh;
+    height: 5vh;
+    margin: 8px 0px 0px 0px;
+}
+
+.expire-date h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.info-3 {
+    /* border: 1px solid rgb(255, 38, 0); */
+    width: 17vh;
+    height: 12vh;
+}
+
+.email {
+    /* border: 1px solid rgb(2, 92, 17); */
+    width: 22vh;
+    height: 5vh;
+}
+
+.email h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.phone {
+    /* border: 1px solid rgb(0, 46, 105); */
+    width: 17vh;
+    height: 5vh;
+    margin: 8px 0px 0px 0px;
+}
+
+.info-4 {
+    /* border: 2px solid rgb(255, 38, 0); */
+    width: 22vh;
+    height: 12vh;
+    margin: 0px 0px 0px 0px;
+    font-size:15px;
+}
+
+.phone h4 {
+    color: rgb(179, 116, 0);
+    font-size:15px;
+}
+
+.sign {
+    /* border: 1px solid rgb(0, 46, 105); */
+    width: 17vh;
+    height: 5vh;
+    margin: 41px 0px 0px 20px;
+    text-align: center;
+}
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
   </head>
   <body>
@@ -126,10 +361,10 @@
   <div class="col-sm-6">
     <div class="card jumbotron">
       <div class="card-body">
-        <form class="form" method="POST" action="id-generator.php">
-        <label for="exampleInputEmail1">Employee ID</label>
-        <input class="form-control mr-sm-2" type="search" placeholder="Enter Id Card No." name="id">
-        <small id="emailHelp" class="form-text text-muted">Every employees' should have unique Id no.</small>
+        <form class="form" method="POST" action="id-card.php">.
+        <label for="exampleInputEmail1">Student Id Card No.</label>
+        <input class="form-control mr-sm-2" type="search" placeholder="Enter Id Card No." name="id_no">
+        <small id="emailHelp" class="form-text text-muted">Every student's should have unique Id no.</small>
         <br>
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="search">Generate</button>
         </form>

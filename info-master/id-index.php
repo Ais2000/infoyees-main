@@ -1,7 +1,8 @@
+
 <?php  
 
 // Connect to the Database 
-include('epes_db');
+include('db_connect.php');
 
 $insert = false;
 $update = false;
@@ -36,15 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 else{
-    $id = $_POST["id"];
-    $employee_id = $_POST["employee_id"];
-    $firstname = $_POST['firstname'];
-    $middlename = $_POST['middlename'];
-    $lastname = $_POST['lastname'];
+    $name = $_POST["name"];
+    $id_no = $_POST["id_no"];
+    $department = $_POST['department'];
+    $role = $_POST['role'];
+    $supervisor = $_POST['supervisor'];
     $email = $_POST['email'];
-    $department_id = $_POST['department_id'];
-    $avatar = $_POST['avatar'];
-    $date = date('M d, Y', strtotime($row['date']));
+    $exp_date = $_POST['exp_date'];
+    $phone = $_POST['phone'];
 
     if($name == '' || $id_no == ''){
         $empty = true;
@@ -70,7 +70,7 @@ else{
               echo "Possible file upload attack!\n";
           }
   // Sql query to be executed
-  $sql = "INSERT INTO `cards`(`name`, `id_no`, `email`, `phone`, `address`, `dob`, `exp_date`, `image`) VALUES ('$name','$id_no','$email]','$phone','$address','$dob','$exp_date','$uploadfile')"; 
+  $sql = "INSERT INTO `cards`(`name`, `id_no`, `email`, `phone`, `supervisor`, `role`, `exp_date`, `image`) VALUES ('$name','$id_no','$email]','$phone','$supervisor','$role','$exp_date','$uploadfile')"; 
 
   // $sql = "INSERT INTO `cards` (`name`, `id_no`) VALUES ('$name', '$id_no')";
   $result = mysqli_query($conn, $sql);
@@ -127,7 +127,7 @@ else{
           <div class="modal-body">
             <input type="hidden" name="snoEdit" id="snoEdit">
             <div class="form-group">
-              <label for="name">Student Name</label>
+              <label for="name">Employee Name</label>
               <input type="text" class="form-control" id="nameEdit" name="nameEdit">
             </div>
 
@@ -144,8 +144,6 @@ else{
       </div>
     </div>
   </div>
-
-
 
   <?php
   if($insert){
@@ -211,34 +209,46 @@ else{
     <form method="POST" enctype="multipart/form-data">
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">Student Name</label>
+        <label for="inputCity">Employee Name</label>
         <input type="text" name="name" class="form-control" id="inputCity">
       </div>
       <div class="form-group col-md-4">
-        <label for="inputState">Class / Grade</label>
+        <label for="inputState">Department</label>
         <select name="grade" class="form-control">
           <option selected>Choose...</option>
-          <option value="1st">1st</option>
-          <option value="2nd">2nd</option>
-          <option value="3rd">3rd</option>
-          <option value="4th">4th</option>
-          <option value="5th">5th</option>
-          <option value="6th">6th</option>
-          <option value="7th">7th</option>
+          <option value="1st">Web Development Team</option>
+          <option value="2nd">Mobile Development Team</option>
+          <option value="3rd">Design Team</option>
+          <option value="4th">Social Media Team</option>
+          <option value="5th">Others</option>
         </select>
       </div>
       <div class="form-group col-md-2">
-        <label for="inputZip">Date Of Birth</label>
-        <input type="date" name="dob" class="form-control">
+        <label for="inputZip">Role</label>
+        <select name="grade" class="form-control">
+          <option selected>Choose...</option>
+          <option value="1st">Junior Programmer</option>
+          <option value="2nd">Senior Programmer</option>
+          <option value="3rd">Designer</option>
+          <option value="4th">Receptionist</option>
+          <option value="5th">Others</option>
+        </select>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">Address</label>
+        <label for="inputCity">Supervisor</label>
+        <select name="grade" class="form-control">
+        <option selected>Choose...</option>
+          <option value="1st">Denver Guitiw</option>
+          <option value="2nd">Mae Gamsewan</option>
+          <option value="3rd">Marie Prado</option>
+          <option value="4th">Erljan Galangot</option>
+          <option value="5th">Others</option>
         <input type="text" name="address" class="form-control">
       </div>
       <div class="form-group col-md-4">
-        <label for="inputState">Email Id</label>
+        <label for="inputState">Email address</label>
         <input type="text" name="email" class="form-control">
       </div>
       <div class="form-group col-md-2">
@@ -299,7 +309,7 @@ else{
     </table>
   </div>
   <hr>
-  <a href="https://www.youtube.com/channel/UCerL4wDA74l1hmv8gnGJCWg" type="button" class="btn btn-primary btn-lg btn-block" target="_blank">Please Like And Subscribe</a>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
