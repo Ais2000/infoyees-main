@@ -25,7 +25,6 @@
                             $email = $row['email'];
                             $exp_date = $row['exp_date'];
                             $phone = $row['phone'];
-                            $address = $row['address'];
                             $image = $row['image'];
                             $date = date('M d, Y', strtotime($row['date']));
                           
@@ -384,6 +383,7 @@ hr.new2 {
      </div>
   </div>
 <hr>
+</div>
 <button id="demo" class="downloadtable btn btn-primary" onclick="downloadtable()"> Download Id Card</button>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -393,6 +393,7 @@ hr.new2 {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script>
+
 
     function downloadtable() {
 
@@ -421,6 +422,7 @@ hr.new2 {
         document.body.removeChild(link);
         delete link;
     }
+
 
 
 

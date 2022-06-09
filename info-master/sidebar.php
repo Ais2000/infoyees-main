@@ -1,4 +1,4 @@
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="dropdown">
    	<a href="./" class="brand-link">
         <?php if($_SESSION['login_type'] == 2): ?>
@@ -23,6 +23,7 @@
               </p>
             </a>
           </li>
+          <?php if($_SESSION['login_type'] == 0): ?>
           <li class="nav-item dropdown">
             <a href="./index.php?page=task_list" class="nav-link nav-task_list">
               <i class="nav-icon fas fa-tasks"></i>
@@ -47,16 +48,32 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index.php?page=resume" class="nav-link nav-resume">
-              <i class="nav-icon fas fa-id-card">
-                <p>
-                  Resume
-                </p>
-              </i>
+        <?php endif; ?>
+          <?php if($_SESSION['login_type'] == 1): ?>
+          <li class="nav-item dropdown">
+            <a href="./index.php?page=task_list" class="nav-link nav-task_list">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Tasks
+              </p>
             </a>
           </li>
-          <?php if($_SESSION['login_type'] == 1): ?>
+          <li class="nav-item dropdown">
+            <a href="./index.php?page=evaluation" class="nav-link nav-evaluation">
+              <i class="nav-icon far fa-edit"></i>
+              <p>
+                Evaluation
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./index.php?page=id-index" class="nav-link nav-id-card">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                ID
+              </p>
+            </a>
+          </li>
         <?php endif; ?>
           <?php if($_SESSION['login_type'] == 2): ?>
           <li class="nav-item dropdown">

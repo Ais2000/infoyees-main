@@ -309,6 +309,7 @@ else{
     </table>
   </div>
   <hr>
+  <a href="index.php?page=id-index" type="button" class="btn btn-primary btn-lg btn-block">Back to homepage</a>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -353,7 +354,7 @@ else{
 
         if (confirm("Are you sure you want to delete this note!")) {
           console.log("yes");
-          window.location = `index.php?delete=${sno}`;
+          window.location = `id-index.php?delete=${sno}`;
           // TODO: Create a form and use post request to submit a form
         }
         else {
